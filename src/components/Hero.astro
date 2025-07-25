@@ -1,0 +1,99 @@
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-gradient-to-b from-primary-100 to-white dark:from-primary-950 dark:to-secondary-950 pt-24 md:pt-32 pb-16 md:pb-20">
+  <!-- Grid pattern background -->
+  <div class="absolute inset-0 z-0 opacity-30">
+    <div class="absolute inset-0 bg-grid-pattern"></div>
+  </div>
+  
+  <div class="container-custom relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Text content -->
+      <div class="animate-slide-down">
+        <h1 class="mb-6 text-secondary-900 dark:text-white leading-tight">
+        <span class="bg-gradient-to-r from-blue-600 via-blue-800 to-black text-transparent bg-clip-text">Conecta garzones y restaurantes</span> fácil y rápido.
+        </h1>        
+        <p class="text-lg md:text-xl text-secondary-600 dark:text-secondary-300 mb-8 max-w-lg animate-slide-up" style="animation-delay: 200ms">
+          Conoce InyApp, la plataforma que conecta los<strong> mejores locales </strong> con <strong> garzones calificados</strong>, de forma rápida, simple y segura. ¡Inscríbete hoy y comienza a construir tu futuro!
+        </p>
+        <div class="flex flex-wrap gap-4" style="animation-delay: 400ms">
+          <a href="https://iny-registro.vercel.app/" class="btn-primary">
+            ¡Inscribete Ahora!
+          </a>
+          <a href="/contact" class="btn-outline flex items-center">
+            Contactanos
+          </a>
+        </div>
+
+        <div class="mt-8 flex items-center gap-4 text-sm text-secondary-500 dark:text-secondary-400" style="animation: fade-in 0.8s ease-out 600ms forwards">
+          <div class="flex -space-x-2">
+            <img class="w-8 h-8 rounded-full border-2 border-white dark:border-secondary-800" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Usuario">
+            <img class="w-8 h-8 rounded-full border-2 border-white dark:border-secondary-800" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Usuario">
+            <img class="w-8 h-8 rounded-full border-2 border-white dark:border-secondary-800" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Usuario">
+          </div>
+          <span>+40 garzones y 15 restaurantes conectados</span>
+        </div>
+      </div>
+      
+      <div class="relative animate-fade-in">
+        <div class="w-full max-w-lg mx-auto">
+          <div class="relative w-80 h-80 mx-auto">
+            <img src="https://i.postimg.cc/j5w44KMW/temp-Image-LZmhw-L.avif" alt="Imagen-hero" class="absolute inset-0 w-full h-full object-cover rounded-full">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Animated Shapes -->
+  <div class="absolute -bottom-16 left-0 right-0 flex justify-center">
+    <div class="w-48 md:w-64 h-48 md:h-64 bg-accent-400 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+</style>

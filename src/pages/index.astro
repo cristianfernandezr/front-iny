@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/Contact.astro';
+import Sponsors from '../components/Sponsors.astro';
+import YouTubeEmbed from '../components/YouTubeEmbed.astro'; 
+---
+
+<Layout title="Inicio - Iny">
+  <Header />
+  <main>
+    <Hero />
+    <YouTubeEmbed url="https://www.youtube.com/watch?v=2c6hq5zvbfw" title="¡Descubre nuestra plataforma en video!" /> <!-- 👈 Aquí se muestra el video -->
+    <Features />
+    <Testimonials />
+    <Sponsors />
+    <ContactForm />
+  </main>
+  
+  <Footer />
+</Layout>

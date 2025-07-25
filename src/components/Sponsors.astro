@@ -1,0 +1,64 @@
+---
+const sponsors = [
+  {
+    name: "Corto",
+    logo: "https://i.postimg.cc/Twq5TMcd/Logo-Corfo1920-X1080.png", // Reemplaza con la URL real del logo
+    alt: "Logo de Corto"
+  },
+  {
+    name: "Incuba UdeC",
+    logo: "https://i.postimg.cc/cLgKr8c5/logo-incuba.png", // Reemplaza con la URL real del logo
+    alt: "Logo de Incuba UdeC"
+  },
+  {
+    name: "Red de Mentores",
+    logo: "https://i.postimg.cc/wvvYjDX1/Captura-de-pantalla-2025-04-14-a-la-s-14-49-56-removebg-preview.png", // Reemplaza con la URL real del logo
+    alt: "Logo de Red de Mentores"
+  }
+];
+---
+
+<section id="sponsors" class="section py-16 bg-gray-50 dark:bg-gray-900">
+  <div class="container-custom">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4">
+        Nuestros Patrocinadores
+      </span>
+      <h2 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">Con el apoyo de grandes aliados</h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Estamos orgullosos de contar con el respaldo de estas organizaciones que creen en nuestra visión.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {sponsors.map((sponsor, index) => (
+        <div
+          class="flex items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in"
+          style={`animation-delay: ${index * 200}ms`}
+        >
+          <img
+            src={sponsor.logo}
+            alt={sponsor.alt}
+            class="h-24 w-auto object-contain"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

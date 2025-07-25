@@ -1,0 +1,130 @@
+---
+const plans = [
+  {
+    name: "Plan Garzón",
+    price: 0,
+    description: "Perfecto para freelancers y pequeños emprendimientos",
+    features: [
+      "Perfil profesional visible para restaurantes",
+      "Notificaciones de vacantes en tu zona",
+      "Acceso a restaurantes en tu región",
+      "Estadísticas básicas de visitas",
+      "Soporte por correo 24/7"
+    ],
+    cta: "Regístrate Gratis",
+    popular: false,
+    color: "primary",
+    for: "garzon"
+  },
+  {
+    name: "Plan Restaurante",
+    price: 2000,
+    description: "Pago por contratación para encontrar al garzón ideal",
+    features: [
+      "Acceso a la base de garzones verificados",
+      "Publicación ilimitada de vacantes",
+      "Filtros avanzados por especialidad",
+      "Soporte prioritario por chat",
+      "Perfil público personalizado",
+      "Soporte prioritario por chat",
+      "Herramientas de promoción básica"
+    ],
+    cta: "Contratar Garzones",
+    popular: false,
+    color: "secondary",
+    for: "restaurante",
+    pricing_note: "por contratación"
+  },
+  {
+    name: "Plan Profesional",
+    price: 9990,
+    description: "Para grandes proveedores de servicios",
+    features: [
+      "Gestión centralizada de múltiples locales",
+      "Acceso a garzones premium verificados",
+      "Programación automática de turnos",
+      "Reportes analíticos de rendimiento",
+      "Asignación de garzones recurrentes",
+      "Soporte dedicado 24/7",
+      "Integración con sistemas POS",
+      "Capacitaciones exclusivas",
+      "Estadísticas empresariales detalladas"
+    ],
+    cta: "Contactar Ventas",
+    popular: false,
+    color: "accent",
+    for: "restaurante"
+  }
+];
+---
+
+<section id="pricing" class="section bg-gray-50 dark:bg-gray-800/50">
+  <div class="container-custom">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-block px-4 py-1 rounded-full bg-accent-100 dark:bg-accent-900 text-accent-600 dark:text-accent-300 font-medium text-sm mb-4">
+        Planes a Medida
+      </span>
+      <h2 class="mb-6 text-gray-900 dark:text-white">Soluciones para cada Necesidad</h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Elige el plan diseñado específicamente para tu rol en la industria gastronómica.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      {plans.map((plan, index) => (
+        <div 
+          class={`card p-6 border-2 ${plan.popular ? 'border-primary-500 dark:border-primary-400' : 'border-gray-200 dark:border-gray-700'} slide-up relative`}
+          style={`animation-delay: ${index * 150}ms`}
+        >
+          {plan.popular && (
+            <div class="absolute top-0 right-0 bg-primary-500 dark:bg-primary-600 text-white text-xs font-bold px-3 py-1 transform translate-x-2 -translate-y-2 rounded-full">
+              POPULAR
+            </div>
+          )}
+          
+          <div class={`mb-4 text-sm font-semibold ${plan.for === 'garzon' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-600 dark:text-secondary-400'}`}>
+            {plan.for === 'garzon' ? 'PARA GARZONES' : 'PARA RESTAURANTES'}
+          </div>
+          
+          <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{plan.name}</h3>
+          
+          <div class="mb-4">
+            {plan.price === 0 ? (
+              <span class="text-4xl font-bold text-gray-900 dark:text-white">Gratis</span>
+            ) : (
+              <>
+                <span class="text-4xl font-bold text-gray-900 dark:text-white">CLP {plan.price.toLocaleString('es-CL')}</span>
+                <span class="text-gray-500 dark:text-gray-400">/{plan.pricing_note || 'mes'}</span>
+              </>
+            )}
+          </div>
+          
+          <p class="text-gray-600 dark:text-gray-300 mb-6">{plan.description}</p>
+          
+          <ul class="space-y-3 mb-8">
+            {plan.features.map(feature => (
+              <li class="flex items-start">
+                <svg class={`w-5 h-5 text-${plan.color}-500 mr-2 flex-shrink-0 mt-0.5`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600 dark:text-gray-300">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <a 
+            href="#signup" 
+            class={`w-full btn ${plan.popular ? 'btn-primary' : 'btn-outline'}`}
+          >
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-12 text-center">
+      <p class="text-gray-600 dark:text-gray-300 mb-2">¿Necesitas un plan personalizado para tus necesidades?</p>
+      <a href="/contact" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Contacta a nuestro equipo de ventas</a>
+    </div>
+  </div>
+</section>
