@@ -80,7 +80,36 @@ const allPages = [
       </button>
       
       <a href="https://iny-registro.vercel.app/" class="hidden sm:inline-flex btn-primary">¡Inscribete Ahora!</a>
-      <a href="https://ejemplo.com/descargar-app" class="block md:hidden btn-primary">Descargar App</a>
+      
+      <!-- Botón de descarga de app con detección de SO -->
+      <div x-data="{ 
+        isAndroid: false, 
+        isIOS: false,
+        init() {
+          const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+          this.isAndroid = /android/i.test(userAgent);
+          this.isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        }
+      }" class="block md:hidden">
+        <a 
+          x-show="isAndroid" 
+          href="https://play.google.com/store/apps/details?id=com.tuapp.android" 
+          class="btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Descarga Aquí!
+        </a>
+        <a 
+          x-show="isIOS" 
+          href="https://apps.apple.com/app/tu-app/id123456789" 
+          class="btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Descarga Aquí!
+        </a>
+      </div>
       
       <!-- Mobile Menu Button and Dropdown -->
       <div x-data="{ open: false, showAllPages: false }">
@@ -108,12 +137,15 @@ const allPages = [
           class="absolute top-16 right-4 w-48 py-2 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           x-cloak
         >
+
+          <a href="https://iny-registro.vercel.app/" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Iniciar Sesión</a>
+          
           <a href="/pricing" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Precios</a>
         
           <a href="/contact" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Contacto</a>
           
-          <!-- Mobile All Pages Dropdown -->
           
+          <!-- Mobile All Pages Dropdown -->
           
           <div 
             x-show="showAllPages" 
@@ -152,3 +184,4 @@ const allPages = [
   /* Hide Alpine.js elements before Alpine loads */
   [x-cloak] { display: none !important; }
 </style>
+
