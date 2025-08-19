@@ -81,35 +81,37 @@ const allPages = [
       
       <a href="https://iny-registro.vercel.app/" class="hidden sm:inline-flex btn-primary">¡Inscribete Ahora!</a>
       
-      <!-- Botón de descarga de app con detección de SO -->
-      <div x-data="{ 
+      <!-- Botón de descarga de app con detección de SO - Versión Mejorada -->
+      <div 
+      x-data="{ 
         isAndroid: false, 
         isIOS: false,
         init() {
           const userAgent = navigator.userAgent || navigator.vendor || window.opera;
           this.isAndroid = /android/i.test(userAgent);
           this.isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        },
+        redirect() {
+          if (this.isAndroid) {
+            window.open('https://play.google.com/store/apps/details?id=com.tuapp.android', '_blank');
+          } else if (this.isIOS) {
+            window.open('https://apps.apple.com/app/tu-app/id123456789', '_blank');
+          }
         }
-      }" class="block md:hidden">
-        <a 
-          x-show="isAndroid" 
-          href="https://play.google.com/store/apps/details?id=com.tuapp.android" 
-          class="btn-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Descarga Aquí!
-        </a>
-        <a 
-          x-show="isIOS" 
-          href="https://apps.apple.com/app/tu-app/id123456789" 
-          class="btn-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Descarga Aquí!
-        </a>
-      </div>
+      }" 
+      class="block md:hidden"
+    >
+      <button 
+        x-show="isAndroid || isIOS"
+        @click="redirect"
+        class="p-2 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-800 transition-colors"
+        aria-label="Descargar aplicación"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+      </button>
+    </div>
       
       <!-- Mobile Menu Button and Dropdown -->
       <div x-data="{ open: false, showAllPages: false }">
